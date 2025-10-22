@@ -1,4 +1,5 @@
 #M4 Projects
+#Stack Class
 from typing import TypeVar, List
 T = TypeVar("T")
 
@@ -17,7 +18,7 @@ class Stack:
 
     def peek(self) -> T:
         if self.is_empty():
-            raise IndexError("peek from empty stack")
+            raise IndexError("Peek from Empty Stack")
         return self._items[-1]
 
     def is_empty(self) -> bool:
@@ -28,3 +29,38 @@ class Stack:
 
     def __len__(self) -> int:
         return self.size()
+
+
+
+
+#Postfix Evaluator 
+from stack import Stack
+import operator
+
+class PostfixEvaluator:
+    OPS = { "+": operator.add, "-": operator.sub, "*": operator.mul, "/": operator.truediv }
+
+    @staticmethod
+    def _num(tok: str) -> float:
+        try:
+            return float(int(tok))
+        except ValueError:
+            return float(tok)
+
+    def evaluate(self, expr: str) -> float:
+        st = Stack[float]()
+        if not expr.strip():
+            raise ValueError("Empty Postfix Expression")
+        for tok in expr.split():
+            if tok in self.OPS:
+                try:
+                    b = st.pop()
+                    a = st.pop()
+                except IndexError:
+                    raise ValueError("Improperly Formed Expression: Insufficient Operands")
+                st.push(self.OPS[tok](a, b))
+            else:
+                st.push(self._num(tok))
+        if st.size() != 1:
+            raise ValueError("Improperly Formed Expression: Too Many Operands")
+        return st.pop()
