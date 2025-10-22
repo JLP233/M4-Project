@@ -1,8 +1,8 @@
 #Stack Class
-from typing import TypeVar, List
+from typing import Generic, TypeVar, List
 T = TypeVar("T")
 
-class Stack:
+class Stack(Generic[T]):
     "Stack ADT (LIFO), Adapter Over Python List."
     def __init__(self) -> None:
         self._items: List[T] = []
