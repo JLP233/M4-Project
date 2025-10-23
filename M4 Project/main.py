@@ -46,7 +46,7 @@ def run_tests():
     ll4.remove_all(6)
     print("Removing 6 and All Duplicates:", ll4.display())
 
-if __name__ == "Main":
+if __name__ == "__main__":
     run_tests()
 
     
