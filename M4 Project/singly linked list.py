@@ -93,7 +93,26 @@ class SinglyLinkedList:
                 prev, cur = cur, cur.next
         return removed
 
-   
+    def display(self) -> str:
+        parts: List[str] = ["Head"]
+        cur = self.head
+        while cur:
+            parts.append(str(cur.data))
+            cur = cur.next
+        parts.append("None")
+        return " -> ".join(parts)
+
+    def display_reverse_nr(self) -> str:
+        stk: List[Any] = []
+        cur = self.head
+        while cur:
+            stk.append(cur.data)
+            cur = cur.next
+        left = "None"
+        while stk:
+            left = f"{left} <- {stk.pop()}"
+        return f"{left} <- Head"
+
 
 
 
