@@ -31,5 +31,22 @@ def run_tests():
     ll2.delete_value(30)
     print("Delete the Interior Node:", ll2.display())
 
+    print("\n Non-Recursive Reverse Print Test")
+    ll3 = SinglyLinkedList()
+    ll3.insert_at_end([10, 20, 30, 40, 50])
+    print("Insertion Order:", ll3.display())
+    print("Reverse Order:", ll3.display_reverse_nr())
+
+    print("\n Remove all test")
+    ll4 = SinglyLinkedList()
+    ll4.insert_at_end([1, 2, 4, 6, 1, 3, 6])
+    print(ll4.display())
+    ll4.remove_all(1)
+    print("Removing 1 and All Duplicates:", ll4.display())
+    ll4.remove_all(6)
+    print("Removing 6 and All Duplicates:", ll4.display())
+
+if __name__ == "Main":
+    run_tests()
 
     
