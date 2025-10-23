@@ -3,7 +3,7 @@
 from singly_linked_list import SinglyLinkedList
 
 def run_tests():
-    print("Build a Forward List")
+    print("\n Build a Forward List")
     ll = SinglyLinkedList()
     ll.build_list_forward([10, 20, 30, 40, 50])
     print(ll.display())
