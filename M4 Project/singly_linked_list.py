@@ -114,6 +114,3 @@ class SinglyLinkedList:
         return f"{left} <- Head"
 
 
-
-
-
